@@ -5,6 +5,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from configs.config_sqlalchemy import SessionLocal, engine, Base
 
 # models
+from models.store import StoreModel
+from models.attendant import AttendantModel
+from models.role import RoleModel
+from models.store_attendant_role import StoreAttendantRole
 
 # create or delete tables
 Base.metadata.create_all(bind=engine)
@@ -12,6 +16,7 @@ Base.metadata.create_all(bind=engine)
 
 # configs
 from configs.config_base import settings
+
 # routes
 
 

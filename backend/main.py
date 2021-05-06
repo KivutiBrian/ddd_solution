@@ -18,7 +18,9 @@ Base.metadata.create_all(bind=engine)
 from configs.config_base import settings
 
 # routes
-
+from routes import (
+    auth, role, store, attendant
+)
 
 
 app = FastAPI(
@@ -37,8 +39,11 @@ app.add_middleware(
     allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],
+    allow_headers=["*"]
 )
 
 # include routers
-# app.include_router(roles.router)
+app.include_router(auth.router)
+app.include_router(role.router)
+app.include_router(store.router)
+app.include_router(attendant.router)

@@ -16,3 +16,7 @@ class RoleModel(Base, Model):
     UpdatedAt = Column(DateTime, nullable=False, default=func.now())
     
     users = relationship('StoreAttendantRole', backref='role', cascade="all, delete, delete-orphan")
+
+    @classmethod
+    def check_role_exists(cls):
+        
